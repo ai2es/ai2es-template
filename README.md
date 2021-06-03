@@ -29,5 +29,5 @@ laid out. That way new users can easily find files as needed.
    the environment with changes to the environment.yml file by running `conda env update -f environment.yml`.
 8. Change the name of the `template` directory to the name of your package. Your Python
    code will go there: `git mv template <packagename>`.
-9. Modify `setup.py` 
+9. Modify `setup.py` to edit the project name, description, and any other keyword arguments for setup. 
    
