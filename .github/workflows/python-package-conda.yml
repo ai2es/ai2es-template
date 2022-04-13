@@ -15,8 +15,11 @@ jobs:
         mamba-version: "*"
         channel-priority: true
         environment-file: environment.yml
+        auto-activate-base: false
+        activate-environment: ai2es
     - shell: bash -l {0}
       run: |
+        conda activate ai2es
         conda info
         conda list
         conda config --show-sources
@@ -24,6 +27,7 @@ jobs:
         printenv | sort
     - name: Lint with flake8
       run: |
+        conda activate ai2es
         mamba install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -31,5 +35,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        conda activate ai2es
         mamba install pytest
         pytest
